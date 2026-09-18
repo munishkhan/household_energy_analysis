@@ -1,0 +1,274 @@
+Loading required package: carData
+
+Attaching package: 'car'
+
+The following object is masked from 'package:psych':
+
+    logit
+
+Dimensions: 18496 households x 799 variables
+Duplicated household IDs: 0 
+
+Variable types
+
+character   integer   numeric 
+        7       559       233 
+
+Structure of the data:
+'data.frame':	18496 obs. of  9 variables:
+ $ DOEID        : int  100001 100002 100003 100004 100005 100006 100007 100008 100009 100010 ...
+ $ TOTALDOL     : num  2657 975 523 2062 1463 ...
+ $ TOTALBTU     : num  144648 28035 30750 86765 59127 ...
+ $ TOTSQFT_EN   : int  2100 590 900 2100 800 4520 2100 900 750 760 ...
+ $ HDD65        : int  3844 3766 3819 2614 4219 901 3148 1825 4233 1502 ...
+ $ CDD65        : int  1679 1458 1696 1718 1363 3558 2128 2374 1159 3812 ...
+ $ REGIONC      : chr  "WEST" "SOUTH" "WEST" "SOUTH" ...
+ $ TYPEHUQ      : int  2 5 5 2 5 2 2 5 5 5 ...
+ $ YEARMADERANGE: int  4 5 3 5 3 6 2 7 7 5 ...
+
+Completeness check:
+              n_missing n_code_na
+DOEID                 0         0
+TOTALDOL              0         0
+TOTALBTU              0         0
+TOTSQFT_EN            0         0
+HDD65                 0         0
+CDD65                 0         0
+REGIONC               0         0
+TYPEHUQ               0         0
+YEARMADERANGE         0         0
+
+Exclusions:
+cost <= 0: 1 
+floor area <= 0: 0 
+rows before: 18496 
+rows analysed: 18495 
+
+Structure of the analysis data:
+'data.frame':	18495 obs. of  8 variables:
+ $ TOTALDOL  : num  2657 975 523 2062 1463 ...
+ $ TOTALBTU  : num  144648 28035 30750 86765 59127 ...
+ $ TOTSQFT_EN: int  2100 590 900 2100 800 4520 2100 900 750 760 ...
+ $ HDD65     : int  3844 3766 3819 2614 4219 901 3148 1825 4233 1502 ...
+ $ CDD65     : int  1679 1458 1696 1718 1363 3558 2128 2374 1159 3812 ...
+ $ REGIONC   : Factor w/ 4 levels "Northeast","Midwest",..: 4 3 4 3 1 3 3 3 3 4 ...
+ $ TYPEHUQ   : Factor w/ 5 levels "Mobile home",..: 2 5 5 2 5 2 2 5 5 5 ...
+ $ vintage   : Factor w/ 2 levels "Before 2000",..: 1 1 1 1 1 1 1 2 2 1 ...
+
+Summary of the analysis data:
+    TOTALDOL           TOTALBTU         TOTSQFT_EN        HDD65      
+ Min.   :    2.85   Min.   :   1182   Min.   :  200   Min.   :    0  
+ 1st Qu.: 1258.47   1st Qu.:  45569   1st Qu.: 1100   1st Qu.: 2434  
+ Median : 1793.25   Median :  74182   Median : 1700   Median : 4396  
+ Mean   : 1990.28   Mean   :  83005   Mean   : 1960   Mean   : 4272  
+ 3rd Qu.: 2472.05   3rd Qu.: 108552   3rd Qu.: 2510   3rd Qu.: 5810  
+ Max.   :20043.41   Max.   :1367548   Max.   :15000   Max.   :17383  
+     CDD65           REGIONC                       TYPEHUQ     
+ Min.   :   0   Northeast:3656   Mobile home           :  974  
+ 1st Qu.: 814   Midwest  :3832   Single-family detached:12318  
+ Median :1179   South    :6426   Single-family attached: 1751  
+ Mean   :1526   West     :4581   Apartment, 2-4 units  : 1013  
+ 3rd Qu.:1805                    Apartment, 5+ units   : 2439  
+ Max.   :5534                                                  
+          vintage     
+ Before 2000  :13975  
+ 2000 or later: 4520  
+                      
+                      
+                      
+                      
+
+Descriptive statistics:
+               n     mean       sd   median     min        max     se      iqr
+TOTALDOL   18495  1990.28  1108.91  1793.25    2.85   20043.41   8.15  1213.58
+TOTALBTU   18495 83005.27 53205.89 74181.90 1182.22 1367548.13 391.23 62983.33
+TOTSQFT_EN 18495  1960.02  1164.98  1700.00  200.00   15000.00   8.57  1410.00
+HDD65      18495  4271.71  2329.48  4396.00    0.00   17383.00  17.13  3376.50
+CDD65      18495  1525.55  1143.26  1179.00    0.00    5534.00   8.41   991.00
+
+ Number of Outliers in total cost variable (TOTALDOL), 1.5 times the Inter Quartile Range): 662 (3.6% of households)
+
+Mean annual cost by region:
+    REGIONC TOTALDOL
+1 Northeast 2447.552
+2   Midwest 1924.659
+3     South 1889.175
+4      West 1822.076
+
+Mean annual cost by housing type:
+                 TYPEHUQ TOTALDOL
+1            Mobile home 1830.690
+2 Single-family detached 2263.853
+3 Single-family attached 1709.566
+4   Apartment, 2-4 units 1420.963
+5    Apartment, 5+ units 1110.370
+
+Mean annual cost by vintage:
+        vintage TOTALDOL
+1   Before 2000 2006.425
+2 2000 or later 1940.383
+
+Group descriptives:
+           group1     n     mean       sd        se
+X11   Before 2000 13975 2006.425 1100.126  9.306077
+X12 2000 or later  4520 1940.383 1134.316 16.871932
+
+Bartlett test:
+
+	Bartlett test of homogeneity of variances
+
+data:  TOTALDOL by vintage
+Bartlett's K-squared = 6.4628, df = 1, p-value = 0.01102
+
+
+Two-sample t-test:
+
+	Welch Two Sample t-test
+
+data:  TOTALDOL by vintage
+t = 3.4275, df = 7463.5, p-value = 0.0006125
+alternative hypothesis: true difference in means between group Before 2000 and group 2000 or later is not equal to 0
+95 percent confidence interval:
+  28.2706 103.8130
+sample estimates:
+  mean in group Before 2000 mean in group 2000 or later 
+                   2006.425                    1940.383 
+
+
+Difference in means: 66.04 USD per year (3.3% of the mean bill)
+
+ Reject the null but the difference is only $66 a year, 3.3% of a typical bill.
+
+Group descriptives:
+       group1    n     mean        sd       se
+X11 Northeast 3656 2447.552 1385.3237 22.91122
+X12   Midwest 3832 1924.659  891.4499 14.40072
+X13     South 6426 1889.175  967.3036 12.06681
+X14      West 4581 1822.076 1115.1001 16.47531
+
+One-way ANOVA:
+               Df    Sum Sq   Mean Sq F value Pr(>F)    
+REGIONC         3 9.763e+08 325419618   276.5 <2e-16 ***
+Residuals   18491 2.177e+10   1177088                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Bartlett test:
+
+	Bartlett test of homogeneity of variances
+
+data:  TOTALDOL by REGIONC
+Bartlett's K-squared = 941.82, df = 3, p-value < 2.2e-16
+
+
+R squared: 0.0429 
+
+Correlation, cost vs floor area:
+[1] 0.4937353
+
+Simple linear regression:
+
+Call:
+lm(formula = TOTALDOL ~ TOTSQFT_EN, data = recs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4864.0  -603.5  -161.3   420.3 16079.3 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 1.069e+03  1.388e+01   77.03   <2e-16 ***
+TOTSQFT_EN  4.700e-01  6.087e-03   77.21   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 964.3 on 18493 degrees of freedom
+Multiple R-squared:  0.2438,	Adjusted R-squared:  0.2437 
+F-statistic:  5961 on 1 and 18493 DF,  p-value: < 2.2e-16
+
+
+Each extra square foot costs 0.47 USD per year
+A home 500 sq ft larger costs about 235 USD more per year
+
+Correlation matrix of the predictors:
+           TOTSQFT_EN  HDD65 CDD65
+TOTSQFT_EN      1.000  0.112 -0.09
+HDD65           0.112  1.000 -0.80
+CDD65          -0.090 -0.800  1.00
+
+Multiple linear regression, raw dollars:
+
+Call:
+lm(formula = TOTALDOL ~ TOTSQFT_EN + HDD65 + CDD65, data = recs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4835.6  -598.4  -156.9   420.0 16093.5 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6.924e+02  3.765e+01  18.390   <2e-16 ***
+TOTSQFT_EN  4.641e-01  6.102e-03  76.055   <2e-16 ***
+HDD65       6.017e-02  5.068e-03  11.871   <2e-16 ***
+CDD65       8.602e-02  1.030e-02   8.349   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 960.7 on 18491 degrees of freedom
+Multiple R-squared:  0.2496,	Adjusted R-squared:  0.2495 
+F-statistic:  2051 on 3 and 18491 DF,  p-value: < 2.2e-16
+
+
+Variance inflation factors:
+TOTSQFT_EN      HDD65      CDD65 
+  1.012677   2.793523   2.780933 
+
+Raw multiple model vs the simple model, same errors?
+  correlation between the two error sets: 0.9961 
+  spread of the errors, simple : 964.3 USD
+  spread of the errors, multi  : 960.6 USD
+
+Multiple linear regression, log of cost:
+
+Call:
+lm(formula = log(TOTALDOL) ~ TOTSQFT_EN + HDD65 + CDD65, data = recs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.1418 -0.2771  0.0248  0.3153  1.9183 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6.824e+00  1.891e-02 360.839   <2e-16 ***
+TOTSQFT_EN  2.227e-04  3.065e-06  72.665   <2e-16 ***
+HDD65       2.988e-05  2.546e-06  11.739   <2e-16 ***
+CDD65       4.330e-05  5.176e-06   8.366   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4825 on 18491 degrees of freedom
+Multiple R-squared:  0.2333,	Adjusted R-squared:  0.2332 
+F-statistic:  1876 on 3 and 18491 DF,  p-value: < 2.2e-16
+
+
+Households with a bill under 100 USD: 8 
+
+Effect of each predictor on annual cost, log model:
+  +100 sq ft : 2.25 %
+  +100 HDD65 : 0.3 %
+  +100 CDD65 : 0.43 %
+
+Adjusted R squared, raw-dollar models:
+  floor area only      : 0.2437 
+  plus heating/cooling : 0.2495 
+
+Train/test split: 14796 train, 3699 test
+
+Prediction error on the test set, USD per year:
+                        RMSE    MAE
+floor area only       970.40 687.16
+plus heating/cooling  965.97 684.42
+log model            1002.53 681.82
+Warning message:
+In sprintf("Each dot is one household.", format(off, big.mark = ",")) :
+  one argument not used by format 'Each dot is one household.'
